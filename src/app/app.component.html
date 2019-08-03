@@ -1,1 +1,6 @@
 <p>Hello {{ title }}</p>
+
+<div *ngFor="let card of cards | async">
+    {{ card.product }}
+    {{ card.count }}
+</div>
