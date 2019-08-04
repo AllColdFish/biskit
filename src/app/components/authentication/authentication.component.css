@@ -1,0 +1,15 @@
+.level-item {
+    margin-bottom: 1em;
+}
+
+.scanner {
+    width: 100%;
+    height: 25em;
+    margin-top: 3em;
+    background-color: black;
+}
+
+.logo {
+    margin-top: -2em;
+    margin-bottom: 2em;
+}

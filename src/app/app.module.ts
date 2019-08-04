@@ -11,11 +11,15 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { HeaderComponent } from './components/header/header.component';
+import { ScannerComponent } from './components/scanner/scanner.component';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    ScannerComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,
