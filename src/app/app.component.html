@@ -5,7 +5,13 @@
     {{ card.count }}
 </div>
 
-<form>
-    <input type="text"/>
-    <button type="submit">Submit</button>
-</form>
+<hr>
+
+<label>
+    Name:
+    <input type="text" [formControl]="name">
+</label>
+
+<p>
+    Value: {{ name.value }}
+</p>
