@@ -14,6 +14,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { ScannerComponent } from './components/scanner/scanner.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 
+// QR scanner
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,8 @@ import { AuthenticationComponent } from './components/authentication/authenticat
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    ZXingScannerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
