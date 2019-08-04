@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormArray } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -20,7 +20,14 @@ export class AppComponent {
       state: [''],
       zip: ['']
     }),
+    aliases: this.fb.array([
+      this.fb.control('')
+    ])
   });
+
+  get aliases() {
+    return this.profileForm.get('aliases') as FormArray;
+  }
 
   cards: Observable<any[]>;
   constructor(db: AngularFirestore, private fb: FormBuilder) {
@@ -31,5 +38,10 @@ export class AppComponent {
     // TODO: Use EventEmitter with form value
     console.warn(this.profileForm.value);
   }
+
+  addAlias() {
+    this.aliases.push(this.fb.control(''));
+  }
+
 
 }
