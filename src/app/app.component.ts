@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,7 +12,7 @@ export class AppComponent {
   title = 'biskit';
 
   profileForm = this.fb.group({
-    firstName: [''],
+    firstName: ['', Validators.required],
     lastName: [''],
     address: this.fb.group({
       street: [''],
