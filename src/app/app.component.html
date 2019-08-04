@@ -7,11 +7,18 @@
 
 <hr>
 
-<label>
-    Name:
-    <input type="text" [formControl]="name">
-</label>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
 
-<p>
-    Value: {{ name.value }}
-</p>
+    <label>
+        First Name:
+        <input type="text" formControlName="firstName">
+    </label>
+
+    <label>
+        Last Name:
+        <input type="text" formControlName="lastName">
+    </label>
+
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+
+</form>
