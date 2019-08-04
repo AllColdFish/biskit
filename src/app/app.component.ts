@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,13 +11,19 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   title = 'biskit';
 
-  profileForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
+  profileForm = this.fb.group({
+    firstName: [''],
+    lastName: [''],
+    address: this.fb.group({
+      street: [''],
+      city: [''],
+      state: [''],
+      zip: ['']
+    }),
   });
 
   cards: Observable<any[]>;
-  constructor(db: AngularFirestore) {
+  constructor(db: AngularFirestore, private fb: FormBuilder) {
     this.cards = db.collection('active_cards').valueChanges();
   }
 
