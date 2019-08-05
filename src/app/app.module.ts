@@ -14,15 +14,22 @@ import { HeaderComponent } from './components/header/header.component';
 import { ScannerComponent } from './components/scanner/scanner.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 
+import { AuthService } from './services/auth.service';
+import { CheckInService } from './services/check-in.service';
+
 // QR scanner
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ScannerComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +40,7 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
     AngularFireStorageModule,
     ZXingScannerModule
   ],
-  providers: [],
+  providers: [AuthService, CheckInService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

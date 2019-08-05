@@ -1,0 +1,40 @@
+<div class="container has-text-centered">
+
+  <div *ngIf="cs.qrResultString && merchant | async as m">
+    <p class="subtitle is-5">🎉<br>Welcome aboard, <br>new biscuiteer!</p>
+    <p class="is-5">Your placeholder account name is <span style="color:magenta">✏️{{ placeholderName }}</span>.<br>You
+      have earned 10 🍪 by checking in @ {{ m.business_name }}</p>
+    <p class="details">Finish your registration below to see, discover & earn more at hundreds of local shops and
+      restaurants!</p>
+  </div>
+  <div class="loader" *ngIf="isLoading == true"></div>
+
+
+
+
+
+  <div *ngIf="cs.qrResultString == 'none'">
+    <p class="subtitle is-5">🎉<br>Welcome aboard, <br>new biscuiteer!</p>
+    <p class="is-5">Your placeholder account name is <span style="color:magenta">✏️{{ placeholderName }}</span>.
+    <p style="margin-top:0.5em;">🍪🍪🍪</p>
+    <p class="details">Finish your registration below to see, discover & earn more at hundreds of local shops and
+      restaurants!</p>
+  </div>
+
+
+  <div class="control">
+    <input class="input is-black is-medium" type="text" placeholder="jane-doe@example.com">
+  </div>
+  <div class="control">
+    <input class="input is-black is-medium" type="password" placeholder="••••••••">
+  </div>
+  <div class="button is-fullwidth is-black is-medium">
+    <span class="is-small has-text-weight-bold is-size-7">
+      FINISH REGISTRATION
+    </span>
+  </div>
+
+  <p style="font-size: 0.8em; margin: 0.2em 1em;">By signing up, you agree to our <a>Terms of Service</a> and <a>Privacy
+      Policy</a>.</p>
+
+</div>

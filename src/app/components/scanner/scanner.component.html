@@ -7,16 +7,17 @@
       </select>
     </header> -->
 
-  <zxing-scanner #scanner [(device)]="currentDevice" (scanSuccess)="changeMessage($event)" [formats]="['EAN_13', 'CODE_128', 'QR_CODE']" [tryHarder]="true"
-    (hasDevices)="hasDevices = $event" (permissionResponse)="hasPermission = $event">
+  <zxing-scanner #scanner [(device)]="currentDevice" (scanSuccess)="changeMessage($event)"
+    [formats]="['EAN_13', 'CODE_128', 'QR_CODE']" [tryHarder]="true" (hasDevices)="hasDevices = $event"
+    (permissionResponse)="hasPermission = $event">
   </zxing-scanner>
 </div>
 
-<div class="modal" [ngClass]="{ 'is-active' : qrResultString }">
+<div class="modal" [ngClass]="{ 'is-active' : cs.qrResultString }">
   <div class="modal-background"></div>
   <div class="modal-card">
     <section class="modal-card-body">
-      <p>{{ qrResultString }}</p>
+      <p>{{ cs.qrResultString }}</p>
       <a class="button is-danger" (click)="clearResult()">
         <p>Connect</p>
       </a>

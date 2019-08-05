@@ -1,4 +1,5 @@
 import { Component, VERSION, OnInit, ViewChild } from '@angular/core';
+import { CheckInService } from '../../services/check-in.service';
 import { ZXingScannerComponent } from '@zxing/ngx-scanner';
 import { Observable, BehaviorSubject } from 'rxjs';
 
@@ -17,30 +18,28 @@ export class ScannerComponent implements OnInit {
   hasDevices: boolean;
   hasPermission: boolean;
 
-  qrResultString: string;
-
   private qrSource = new BehaviorSubject('');
   currentQR = this.qrSource.asObservable();
 
   availableDevices: MediaDeviceInfo[];
   currentDevice: MediaDeviceInfo;
 
-  constructor() { }
+  constructor(public cs: CheckInService) { }
 
   clearResult(): void {
-    this.qrResultString = '';
+    this.cs.qrResultString = '';
   }
 
   ngOnInit(): void {
-    this.currentQR.subscribe(qr => this.qrResultString = qr);
-    this.scanner.camerasFound.subscribe((devices: MediaDeviceInfo[]) => {
-      this.availableDevices = devices;
-      this._selectBackfaceCamera(devices);
-    });
+      this.currentQR.subscribe(qr => this.cs.qrResultString = qr);
+      this.scanner.camerasFound.subscribe((devices: MediaDeviceInfo[]) => {
+        this.availableDevices = devices;
+        this._selectBackfaceCamera(devices);
+      });
   }
 
   onCodeResult(resultString: string) {
-    this.qrResultString = resultString;
+    this.cs.qrResultString = resultString;
   }
 
   onDeviceSelectChange(selected: string) {

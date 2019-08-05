@@ -1,0 +1,21 @@
+.subtitle {
+    margin-top: 1em;
+}
+
+.details {
+    margin-top: 1.5em;
+    font-size: 0.7em;
+}
+
+.control {
+    margin: 0.5em 0em;
+}
+
+.container {
+    margin: 0em 1em;
+}
+
+a {
+    color: hsl(0, 0%, 21%);
+    text-decoration: underline;
+}

@@ -1,4 +1,8 @@
+<div *ngIf="!cs.qrResultString && auth.page == 0; then home else form"></div>
 
+<ng-template #home>
+
+  <!-- logo and text -->
   <div class="logo has-text-centered">
     <img style="width: 10em;" src="assets/logo.svg">
   </div>
@@ -6,30 +10,44 @@
     <p class="subtitle is-5">Scan the QR code in front of you to get started!</p>
   </div>
 
-<div class="scanner">
-  <div class="frame1"></div>
-  <div class="frame2"></div>
-  <div class="frame3"></div>
-  <div class="frame4"></div>
-  <app-scanner></app-scanner>
-</div>
-<nav class="level navbar is-fixed-bottom has-text-centered">
-  <div class="level-item has-text-centered">
-    <div class="column">
-      <span class="small">Already have an account?</span>
-      <div class="button is-fullwidth is-black is-outlined is-medium">
-        <span class="is-small has-text-weight-bold is-size-7">
-          LOGIN
-        </span>
-      </div>
-    </div>
-    <div class="column">
-      <span class="small">Set up a new account?</span>
-      <div class="button is-fullwidth is-black is-medium">
-        <span class="is-small has-text-weight-bold is-size-7">
-          REGISTER
-        </span>
-      </div>
-    </div>
+  <!-- scanner -->
+  <div class="scanner">
+    <div class="frame1"></div>
+    <div class="frame2"></div>
+    <div class="frame3"></div>
+    <div class="frame4"></div>
+    <app-scanner></app-scanner>
   </div>
-</nav>
+
+  <!-- bottom navigation bar -->
+  <nav class="level navbar is-fixed-bottom has-text-centered" *ngIf="!cs.qrResultString">
+    <div class="level-item has-text-centered">
+      <div class="column">
+        <span class="small">Already have an account?</span>
+        <div class="button is-fullwidth is-black is-outlined is-medium">
+          <span class="is-small has-text-weight-bold is-size-7" (click)="auth.togglePage(1)">
+            LOGIN
+          </span>
+        </div>
+      </div>
+      <div class="column">
+        <span class="small">Set up a new account?</span>
+        <div class="button is-fullwidth is-black is-medium">
+          <span class="is-small has-text-weight-bold is-size-7" (click)="auth.togglePage(2)">
+            REGISTER
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+</ng-template>
+
+<ng-template #form>
+  <div *ngIf="auth.page == 1">
+    <app-login></app-login>
+  </div>
+  <div *ngIf="auth.page == 2">
+    <app-register></app-register>
+  </div>
+</ng-template>
