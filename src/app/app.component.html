@@ -1,1 +1,11 @@
-<app-authentication></app-authentication>
+<div *ngIf="auth.user$ | async; then authenticated else guest">
+    <!-- template will replace this div -->
+</div>
+
+<ng-template #guest>
+    <app-authentication></app-authentication>
+</ng-template>
+
+<ng-template #authenticated>
+    <app-home></app-home>
+</ng-template>

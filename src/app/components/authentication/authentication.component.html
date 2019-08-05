@@ -24,19 +24,15 @@
     <div class="level-item has-text-centered">
       <div class="column">
         <span class="small">Already have an account?</span>
-        <div class="button is-fullwidth is-black is-outlined is-medium">
-          <span class="is-small has-text-weight-bold is-size-7" (click)="auth.togglePage(1)">
-            LOGIN
-          </span>
-        </div>
+        <button class="button is-fullwidth is-black is-outlined is-medium" (click)="auth.togglePage(1)">
+            <span class="is-small has-text-weight-bold is-size-7">LOGIN</span>
+          </button>
       </div>
       <div class="column">
         <span class="small">Set up a new account?</span>
-        <div class="button is-fullwidth is-black is-medium">
-          <span class="is-small has-text-weight-bold is-size-7" (click)="auth.togglePage(2)">
-            REGISTER
-          </span>
-        </div>
+        <button class="button is-fullwidth is-black is-medium" (click)="auth.togglePage(2)">
+          <span class="is-small has-text-weight-bold is-size-7">REGISTER</span>
+        </button>
       </div>
     </div>
   </nav>

@@ -15,10 +15,10 @@
     margin: 0em 1em;
 }
 
-a {
+/* a {
     color: hsl(0, 0%, 21%);
     text-decoration: underline;
-}
+} */
 
 .loader {
     border: 2px solid white;

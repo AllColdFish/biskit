@@ -21,6 +21,7 @@ import { CheckInService } from './services/check-in.service';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LoginComponent } from './components/login/login.component';
     ScannerComponent,
     AuthenticationComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

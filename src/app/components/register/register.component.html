@@ -16,23 +16,25 @@
   <div *ngIf="cs.qrResultString == 'none'">
     <p class="subtitle is-5">🎉<br>Welcome aboard, <br>new biscuiteer!</p>
     <p class="is-5">Your placeholder account name is <span style="color:magenta">✏️{{ placeholderName }}</span>.
-    <p style="margin-top:0.5em;">🍪🍪🍪</p>
-    <p class="details">Finish your registration below to see, discover & earn more at hundreds of local shops and
-      restaurants!</p>
+      <p style="margin-top:0.5em;">🍪🍪🍪</p>
+      <p class="details">Finish your registration below to see, discover & earn more at hundreds of local shops and
+        restaurants!</p>
   </div>
 
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="control">
+      <input class="input is-black is-medium" type="text" formControlName="email" placeholder="jane-doe@example.com">
+    </div>
+    <div class="control">
+      <input class="input is-black is-medium" type="password" formControlName="password" placeholder="••••••••">
+    </div>
+    <div class="control">
+      <button class="button is-fullwidth is-black is-medium" type="submit">
+        <span class="is-small has-text-weight-bold is-size-7">FINISH REGISTRATION</span>
+      </button>
+    </div>
 
-  <div class="control">
-    <input class="input is-black is-medium" type="text" placeholder="jane-doe@example.com">
-  </div>
-  <div class="control">
-    <input class="input is-black is-medium" type="password" placeholder="••••••••">
-  </div>
-  <div class="button is-fullwidth is-black is-medium">
-    <span class="is-small has-text-weight-bold is-size-7">
-      FINISH REGISTRATION
-    </span>
-  </div>
+  </form>
 
   <p style="font-size: 0.8em; margin: 0.2em 1em;">By signing up, you agree to our <a>Terms of Service</a> and <a>Privacy
       Policy</a>.</p>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import { CheckInService } from '../../services/check-in.service';
+import { AuthService } from '../../services/auth.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -17,7 +19,7 @@ export class RegisterComponent implements OnInit {
 
   merchant: Observable<any>;
 
-  constructor(afs: AngularFirestore, public cs: CheckInService) {
+  constructor(afs: AngularFirestore, public cs: CheckInService, public auth: AuthService) {
     if (cs.qrResultString && cs.qrResultString !== 'none') {
       this.merchant = afs.doc(`merchant_users/${cs.qrResultString}`).valueChanges().pipe(
         tap(doc => {
@@ -31,6 +33,15 @@ export class RegisterComponent implements OnInit {
     } else if (cs.qrResultString === 'none') {
       this.isLoading = false;
     }
+  }
+
+  profileForm = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl(''),
+  });
+
+  onSubmit() {
+    return this.auth.emailSignup(this.profileForm.value);
   }
 
   ngOnInit() {

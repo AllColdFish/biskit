@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
@@ -11,7 +12,7 @@ export class AppComponent {
   title = 'biskit';
 
   cards: Observable<any[]>;
-  constructor(db: AngularFirestore) {
+  constructor(db: AngularFirestore, public auth: AuthService) {
     this.cards = db.collection('active_cards').valueChanges();
   }
 

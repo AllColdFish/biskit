@@ -3,17 +3,18 @@
   <p style="margin-bottom:1em;">🍪🍪🍪</p>
 
 
-  <div class="control">
-    <input class="input is-black is-medium" type="text" placeholder="jane-doe@example.com">
-  </div>
-  <div class="control">
-    <input class="input is-black is-medium" type="password" placeholder="••••••••">
-  </div>
-  <div class="button is-fullwidth is-black is-medium">
-    <span class="is-small has-text-weight-bold is-size-7">
-      LOG IN
-    </span>
-  </div>
-
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="control">
+      <input class="input is-black is-medium" type="text" formControlName="email" placeholder="jane-doe@example.com">
+    </div>
+    <div class="control">
+      <input class="input is-black is-medium" type="password" formControlName="password" placeholder="••••••••">
+    </div>
+    <div class="control">
+      <button class="button is-fullwidth is-black is-medium" type="submit">
+        <span class="is-small has-text-weight-bold is-size-7">LOG IN</span>
+      </button>
+    </div>
+  </form>
 
 </div>
